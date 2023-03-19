@@ -2,8 +2,8 @@ from requests import get
 from bs4 import BeautifulSoup
 import re
 #* vv-variables-vv
-# URL = "https://irshavaotg.gov.ua/"
-URL = "https://www.pythontutorial.net/python-basics/python-write-text-file/"
+URL = "https://irshavaotg.gov.ua/"
+# URL = "https://www.pythontutorial.net/python-basics/python-write-text-file/"
 HEADERS = {
     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
 }
@@ -20,7 +20,8 @@ with open('./links.txt', 'w') as file:
             if link_regex.match(href): 
                 file.write(f"{href}\n")
                 links_arr.append(href)
-    for link in links_arr:
+    this_links_arr = links_arr.copy()
+    for link in this_links_arr:
         URL = link
         page = get(URL, headers=HEADERS)
         soup = BeautifulSoup(page.text, 'lxml')
