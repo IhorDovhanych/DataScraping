@@ -21,6 +21,7 @@ class PylinksSpider(scrapy.Spider):
         }
         #* ^^-variables-^^
         data = ET.Element('links')
+        
         for link in soup.find_all('a'):
             href = link.get('href')
             if href is not None and href not in links_arr:
