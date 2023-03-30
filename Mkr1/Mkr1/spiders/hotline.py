@@ -9,7 +9,6 @@ class HotlineSpider(scrapy.Spider):
     f = open('./data.csv', 'w')
     writer = csv.writer(f)
     def parse(self, response):
-        names = response.css('a.list-item__title.text-md.m_b-10::text').getall()
         values = response.css('div.list-item')
         for value in values:
             name = f"name: {value.css('a.list-item__title.text-md.m_b-10::text').get()}"

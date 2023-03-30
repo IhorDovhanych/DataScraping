@@ -18,3 +18,7 @@ class DepartmentItem(scrapy.Item):
 class StaffItem(scrapy.Item):
     name = scrapy.Field()
     department = scrapy.Field()
+class CountryItem(scrapy.Item):
+    title = scrapy.Field()
+    link = scrapy.Field()
+    links_inside = scrapy.Field()
