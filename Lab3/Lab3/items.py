@@ -15,3 +15,4 @@ class HotlineItem(scrapy.Item):
     price = scrapy.Field()
     url = scrapy.Field()
     image_urls = scrapy.Field()
+    image_binary = scrapy.Field()

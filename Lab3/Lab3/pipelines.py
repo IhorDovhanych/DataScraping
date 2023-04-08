@@ -36,7 +36,8 @@ class MySqlPipeline:
             name VARCHAR(50) NOT NULL,
             price VARCHAR(500),
             url VARCHAR(500),
-            image_urls VARCHAR(500)
+            image_urls VARCHAR(500),
+            img LONGBLOB
         );""")
         spider.logger.info("DB is ready ")
         
@@ -55,8 +56,8 @@ class MySqlPipeline:
                                 )
         else:
             self.cursor.execute(
-                "INSERT INTO items (name, price, url, image_urls) VALUES (%s, %s, %s, %s);",
-                [item.get("name"), item.get("price"), item.get("url"), item['image_urls'][0]])
+                "INSERT INTO items (name, price, url, image_urls, img) VALUES (%s, %s, %s, %s, %s);",
+                [item.get("name"), item.get("price"), item.get("url"), item['image_urls'][0], item['image_binary']])
 
         self.connection.commit()
         return item
