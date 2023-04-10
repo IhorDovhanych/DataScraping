@@ -48,12 +48,11 @@ class MySqlPipeline:
     def process_item(self, item, spider):
         if self.is_duplicate(item):
             self.cursor.execute("""
-                                    UPDATE items
-                                    SET price = %s
-                                    WHERE name = %s
-                                    """,
-                                [item.get("price"), item.get("name")]
-                                )
+                UPDATE items
+                SET price = %s, url = %s, image_urls = %s, img = %s
+                WHERE name = %s
+                """,
+                [item.get("price"), item.get("url"), item['image_urls'][0], item['image_binary'], item.get("name")])
         else:
             self.cursor.execute(
                 "INSERT INTO items (name, price, url, image_urls, img) VALUES (%s, %s, %s, %s, %s);",

@@ -8,6 +8,9 @@ from scrapy import signals
 # useful for handling different item types with a single interface
 from itemadapter import is_item, ItemAdapter
 
+from scrapy.http import JsonRequest
+from scrapy.utils.serialize import ScrapyJSONEncoder
+from json import dumps, loads
 
 class Lab3SpiderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
@@ -33,6 +36,7 @@ class Lab3SpiderMiddleware:
         # it has processed the response.
 
         # Must return an iterable of Request, or item objects.
+
         for i in result:
             yield i
 
@@ -49,9 +53,11 @@ class Lab3SpiderMiddleware:
         # that it doesn’t have a response associated.
 
         # Must return only requests (not items).
+
         for r in start_requests:
             yield r
 
+        
     def spider_opened(self, spider):
         spider.logger.info("Spider opened: %s" % spider.name)
 

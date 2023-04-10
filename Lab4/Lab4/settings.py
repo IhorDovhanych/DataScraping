@@ -11,13 +11,15 @@ BOT_NAME = "Lab4"
 
 SPIDER_MODULES = ["Lab4.spiders"]
 NEWSPIDER_MODULE = "Lab4.spiders"
-
-
+MEDIA_ALLOW_REDIRECTS = True
+ITEM_PIPELINES = {
+    'Lab4.pipelines.ClearHotlineDataPipeline': 400
+}
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "Lab4 (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -45,13 +47,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    "Lab4.middlewares.Lab4SpiderMiddleware": 543,
+#    "Lab3.middlewares.Lab3SpiderMiddleware": 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    "Lab4.middlewares.Lab4DownloaderMiddleware": 543,
+#    "Lab3.middlewares.Lab3DownloaderMiddleware": 543,
 #}
 
 # Enable or disable extensions
@@ -63,7 +65,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    "Lab4.pipelines.Lab4Pipeline": 300,
+#    "Lab3.pipelines.Lab3Pipeline": 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)

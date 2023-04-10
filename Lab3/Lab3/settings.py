@@ -18,6 +18,13 @@ ITEM_PIPELINES = {
     'Lab3.pipelines.MySqlPipeline': 1,
     "scrapy.pipelines.images.ImagesPipeline": 1,
 }
+SPIDER_MIDDLEWARES = {
+    "Lab3.middlewares.Lab3SpiderMiddleware": 544,
+}
+
+DOWNLOADER_MIDDLEWARES = {
+    "Lab3.middlewares.Lab3DownloaderMiddleware": 543,
+}
 IMAGES_STORE = './img'
 IMAGES_EXPIRES = 0
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
