@@ -15,6 +15,13 @@ MEDIA_ALLOW_REDIRECTS = True
 ITEM_PIPELINES = {
     'Lab4.pipelines.ClearHotlineDataPipeline': 400
 }
+SPIDER_MIDDLEWARES = {
+    "hotline.middlewares.HotlineSpiderMiddleware": 544,
+}
+
+DOWNLOADER_MIDDLEWARES = {
+    "hotline.middlewares.HotlineDownloaderMiddleware": 543,
+}
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "Lab4 (+http://www.yourdomain.com)"
 
