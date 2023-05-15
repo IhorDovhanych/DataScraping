@@ -1,0 +1,14 @@
+setup.py
+lab5/SeleniumRequest.py
+lab5/__init__.py
+lab5/items.py
+lab5/middlewares.py
+lab5/pipelines.py
+lab5/settings.py
+lab5/spiders/__init__.py
+lab5/spiders/skins.py
+project.egg-info/PKG-INFO
+project.egg-info/SOURCES.txt
+project.egg-info/dependency_links.txt
+project.egg-info/entry_points.txt
+project.egg-info/top_level.txt
