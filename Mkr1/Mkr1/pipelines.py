@@ -11,3 +11,12 @@ from itemadapter import ItemAdapter
 class Mkr1Pipeline:
     def process_item(self, item, spider):
         return item
+class HotlinePipeline:
+
+    def process_item(self, item, spider):
+        try:
+            item["price"] = float(item.get("price").replace("\xa0", ""))
+            item["name"] = item.get("name").replace("\n              ", "").replace("\n            ", "")
+            return item
+        except:
+            raise print(f"Bad values in {item}")

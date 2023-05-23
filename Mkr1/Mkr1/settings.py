@@ -18,7 +18,11 @@ USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTM
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
-
+ITEM_PIPELINES = {
+"scrapy.pipelines.images.ImagesPipeline": 1,
+"scrapy.pipelines.files.FilesPipeline": 200,
+"Mkr1.pipelines.HotlinePipeline": 999,
+}
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 
