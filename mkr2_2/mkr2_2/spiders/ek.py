@@ -7,7 +7,7 @@ from mkr2_2.items import EkItem
 class EkSpider(scrapy.Spider):
     name = "ek"
     allowed_domains = ["ek.ua"]
-    start_urls = [f"https://ek.ua/ua/list/84/{page}/" for page in range(1,3)]
+    start_urls = [f"https://ek.ua/ua/list/84/{page}/" for page in range(1,204)]
     def start_requests(self):   
         for url in self.start_urls:
             yield SeleniumRequest(
